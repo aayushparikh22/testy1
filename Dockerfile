@@ -1,10 +1,9 @@
-from flask import Flask
+FROM python:3.8-slim
 
-app = Flask(_name_)
+WORKDIR /app
 
-@app.route("/")
-def hello():
-    return "Hello, Dew Drop Service!"
+COPY . /app
 
-if _name_ == "_main_":
-    app.run(host='0.0.0.0')
+RUN pip install -r requirements.txt
+
+CMD ["python", "server.py"]
